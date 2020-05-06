@@ -13,3 +13,4 @@ wordcloud = WordCloud(font_path='../SDKukdetopokki-aLt.otf',
 ...
 
 test1234
+다른계정으로 접속
