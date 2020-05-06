@@ -11,5 +11,4 @@ wordcloud = WordCloud(font_path='../SDKukdetopokki-aLt.otf',
                        width=2400, height=1800,
                        ranks_only=True
 ...
-
 asdf
