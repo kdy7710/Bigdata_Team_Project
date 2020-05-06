@@ -1,0 +1,13 @@
+* Wordcloud
+wordcloud 파라미터(옵션) 중
+font_path 지정이 잘못될 경우 오류 발생(명확한 오류메시지X)
+같은 work space에 위치시켜
+font_path='폰트명.확장자'로 쓰거나
+절대경로로 지정을 해줘야함.
+
+ex)
+...
+wordcloud = WordCloud(font_path='../SDKukdetopokki-aLt.otf',
+                       width=2400, height=1800,
+                       ranks_only=True
+...
