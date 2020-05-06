@@ -12,3 +12,4 @@ wordcloud = WordCloud(font_path='../SDKukdetopokki-aLt.otf',
                        ranks_only=True
 ...
 
+test1234
