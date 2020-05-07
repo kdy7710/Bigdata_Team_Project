@@ -1,5 +1,5 @@
 def socialblade(youtube_id, chart_no):
-    """youtube_id는 유튜브url https://www.youtube.com/channel/ 뒤에 붙어 있는 아이디, 
+    """youtube_id는 유튜브url https://www.youtube.com/channel/ 혹은 https://www.youtube.com/user/ 뒤에 붙어 있는 아이디 혹은 문자열, 
        chart_no는 socialblade에 detailed statistics에 있는 javascript상에 차트 순번,
        출력값은 리스트로 차트 결과값
     """
