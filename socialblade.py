@@ -1,7 +1,6 @@
 def socialblade(youtube_id):
     """youtube_id는 유튜브url https://www.youtube.com/channel/ 혹은 https://www.youtube.com/user/ 뒤에 붙어 있는 아이디 혹은 문자열, 
-       chart_no는 socialblade에 detailed statistics에 있는 javascript상에 차트 순번,
-       출력값은 리스트로 차트 결과값
+       출력값은 2차원리스트로 날짜, 구독자 순
     """
     from bs4 import BeautifulSoup
     from selenium import webdriver
@@ -17,9 +16,6 @@ def socialblade(youtube_id):
     soup = BeautifulSoup(html, 'html.parser')
     test = soup.find_all('script', {'type': 'text/javascript'})
     
-    #for i, name in enumerate(test):
-    #    print(i,name)
-
     #javascript내에 있는 데이터 위치 찾기(10번째)
     import re
     text = str(test[10])
