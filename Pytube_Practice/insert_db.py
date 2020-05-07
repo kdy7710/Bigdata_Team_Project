@@ -1,10 +1,5 @@
 from Kotube import get_info
-import pandas as pd
 from Youtube_URL import get_url
-
-
-
-df = pd.DataFrame(columns=['title','length','rating','thumbnail','views','description'])
 
 
 
