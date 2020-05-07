@@ -26,13 +26,13 @@ def socialblade(youtube_id, chart_no):
     start_txt = 'data:'
     end_txt ='navigation'
 
-    #3번째 시작index 찾기
+    #시작index 찾기
     indice = re.finditer(start_txt,text)
     for i in range(chart_no-1):
         indice.__next__()
     start_index =indice.__next__().start()+8
 
-    #3번째 끝index 찾기
+    #끝index 찾기
     indice= re.finditer(end_txt,text)
     for i in range(chart_no-1):
         indice.__next__()
