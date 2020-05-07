@@ -41,14 +41,42 @@ def socialblade(youtube_id, chart_no):
     #slice
     sb_list = text[start_index: end_index].split('],[')
 
-    #값 리스트
+    #값 리스트 생성
     sb_data = []
-    for i in sb_list[::-1]:
-        sb_data.append(i.split(',')[1])
-    return sb_data
+    if chart_no in (3,4,5,6):
+        for i in sb_list[::-1]:
+            sb_data.append(i.split(',')[1])
+    else: #1,2는 배열뒤집을 필요없음
+        for i in sb_list:
+            sb_data.append(i.split(',')[1])
+    #return sb_data
+    
+    #날짜 생성 준비
+    import datetime
+    today = datetime.datetime.today()
+    date =[]
+    
+    #데이터 따라서 적합한 날짜 간격생성
+        
+    if chart_no in (3,4):
+        timeframe=30
+        for i in range(len(sb_data)):
+            today = today - datetime.timedelta(days=timeframe)
+            date.append(str(today)[:10])
+    elif chart_no in (5,6):
+        timeframe=8
+        for i in range(len(sb_data)):
+            date.append(str(today)[:10])
+            today = today - datetime.timedelta(days=timeframe)
+    else: #1,2일때
+        timeframe=7
+        for i in range(len(sb_data)):
+            date.append(str(today)[:10])
+            today = today - datetime.timedelta(days=timeframe)        
+            
+        
+    return(list(zip(reversed(date),sb_data)))
 
-
-#테스트용 코드 (단독실행 일때만 실행되고 다른곳에서 import하면 실행안됨)
 if __name__=='__main__':
-    a = socialblade('UCbFzvzDu17eDZ3RIeaLRswQ',5)
+    a = socialblade('UCbFzvzDu17eDZ3RIeaLRswQ',4)
     print(a)
