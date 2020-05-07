@@ -1,7 +1,9 @@
-def socialblade(youtube_id):
-    """youtube_id는 유튜브url https://www.youtube.com/channel/ 혹은 https://www.youtube.com/user/ 뒤에 붙어 있는 아이디 혹은 문자열, 
-       출력값은 2차원리스트로 날짜, 구독자 순
+def socialblade(channerurl):
+    """channerurl는 영상url 
+       출력값은 2차원리스트로 [날짜, 구독자] 
     """
+    youtube_id = channelurl.split('/')[-1]
+
     from bs4 import BeautifulSoup
     from selenium import webdriver
 
@@ -46,5 +48,5 @@ def socialblade(youtube_id):
 
 #테스트용코드 import로 다른 파일에서 실행시에는 실행되지 않음
 if __name__=='__main__':
-    a = socialblade('UC78PMQprrZTbU0IlMDsYZPw')
+    a = socialblade('https://www.youtube.com/channel/UCk6bX-MZXdte_7kG8TbMkqg')
     print(a)
