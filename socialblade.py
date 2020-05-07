@@ -74,7 +74,7 @@ def socialblade(youtube_id, chart_no):
             date.append(str(today)[:10])
             today = today - datetime.timedelta(days=timeframe)        
             
-        
+    #날짜 데이터 합치기    
     return(list(zip(reversed(date),sb_data)))
 
 if __name__=='__main__':
