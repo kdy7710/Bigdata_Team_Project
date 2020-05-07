@@ -1,4 +1,4 @@
-def socialblade(channerurl):
+def socialblade(channelurl):
     """channerurl는 영상url 
        출력값은 2차원리스트로 [날짜, 구독자] 
     """
