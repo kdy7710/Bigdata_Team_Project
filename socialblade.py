@@ -19,64 +19,32 @@ def socialblade(youtube_id):
     #javascript내에 있는 데이터 위치 찾기(10번째)
     import re
     text = str(test[10])
+
+    #데이터 위치 인덱스 찾아서 데이터를 리스트로 변환
     sub_txt='graph-youtube-monthly-subscribers-container'
     start_txt = 'data:'
     end_txt ='navigation'
-    
     text = text[text.index(sub_txt):]
     text = text[text.index(start_txt)+8:text.index(end_txt)-19]
-    
-#     #시작index 찾기
-#     indice = re.finditer(start_txt,text)
-#     for i in range(chart_no-1):
-#         indice.__next__()
-#     start_index =indice.__next__().start()+8
-
-#     #끝index 찾기
-#     indice= re.finditer(end_txt,text)
-#     for i in range(chart_no-1):
-#         indice.__next__()
-#     end_index =indice.__next__().start()-19
-
-    #slice
     sb_list = text.split('],[')
 
-#     #값 리스트 생성
+    #유닉스타임 시간변환 함수만들기
+    def convert(time):
+        import datetime
+        date = datetime.datetime.fromtimestamp(time/1000).strftime('%Y-%m-%d')
+        return date
+    
+    #값 리스트 생성
     sb_data = []
-#    if chart_no in (3,4,5,6):
     for i in sb_list[::-1]:
-        sb_data.append(i.split(',')[1])
-#     else: #1,2는 배열뒤집을 필요없음
-#         for i in sb_list:
-#             sb_data.append(i.split(',')[1])
-#     #return sb_data
-    
-    #날짜 생성 준비
-    import datetime
-    today = datetime.datetime.today()
-    date =[]
-    
-#     #데이터 따라서 적합한 날짜 간격생성
-        
-#     if chart_no in (3,4):
-    timeframe=30
-    for i in range(len(sb_data)):
-        today = today - datetime.timedelta(days=timeframe)
-        date.append(str(today)[:10])
-#     elif chart_no in (5,6):
-#         timeframe=8
-#         for i in range(len(sb_data)):
-#             date.append(str(today)[:10])
-#             today = today - datetime.timedelta(days=timeframe)
-#     else: #1,2일때
-#         timeframe=7
-#         for i in range(len(sb_data)):
-#             date.append(str(today)[:10])
-#             today = today - datetime.timedelta(days=timeframe)        
-            
-    #날짜 데이터 합치기    
-    return(list(zip(reversed(date),sb_data)))
+        a=convert(int(i.split(',')[0])) #시간함수적용
+        b=i.split(',')[1]
+        li=[a,b]
+        sb_data.append(li)
+          
+    return(sb_data)
 
+#테스트용코드 import로 다른 파일에서 실행시에는 실행되지 않음
 if __name__=='__main__':
     a = socialblade('UC78PMQprrZTbU0IlMDsYZPw')
     print(a)
