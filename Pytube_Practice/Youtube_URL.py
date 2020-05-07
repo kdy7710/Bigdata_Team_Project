@@ -58,7 +58,7 @@ def get_url(plusURL, count):
 
 
    return(videolist)
-
+if __name__=='__main__':
 print(get_url('이영표',3))
 
 
