@@ -3,11 +3,11 @@ from Youtube_URL import get_url
 
 
 
-videolist = get_url('도넛버거',30)
+videolist = get_url('파이썬',30)
 
 import pymysql
 # alter charset to 'utf8mb4' to insert imoji
-conn = pymysql.connect(host='localhost',user='bigdb',password='bigdb1234',db='bigdb',charset='utf8mb4')
+conn = pymysql.connect(host='13.58.15.95', port= 3306, user='Habeen',password='jih4412',db='test')
 
 cur = conn.cursor(pymysql.cursors.DictCursor)
 
@@ -15,8 +15,7 @@ cur = conn.cursor(pymysql.cursors.DictCursor)
 for i in range(0,len(videolist)):
     
     video_info = get_info(videolist[i])
-    print(type(video_info['description']))
-    print(video_info['description'])
+
     sql = """
     insert into youtube 
     values (%s,%s,%s,%s,%s,%s,%s,now())

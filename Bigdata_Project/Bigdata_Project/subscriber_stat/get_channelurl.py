@@ -7,6 +7,7 @@ def get_channelurl(url):
     from selenium import webdriver
     driver = webdriver.Chrome('chromedriver')
     driver.get(url)
+    driver.implicitly_wait(3)
     driver.find_element_by_css_selector('ytd-channel-name.ytd-video-owner-renderer > div:nth-child(1) > div:nth-child(1) > yt-formatted-string:nth-child(1) > a:nth-child(1)').click()
     'yt-formatted-string.ytd-video-primary-info-renderer:nth-child(2)'
     channel_url = driver.current_url

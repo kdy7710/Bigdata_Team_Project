@@ -14,7 +14,7 @@ def get_url(plusURL, count):
 
 
 
-   driver = webdriver.Chrome(r'chromedriver.exe',options = chrome_options)
+   driver = webdriver.Chrome('chromedriver.exe', options = chrome_options)
 
    baseURL = 'https://www.youtube.com/results?search_query='
 
@@ -56,8 +56,11 @@ def get_url(plusURL, count):
       videolist.append(vidurl)
 
 
-   
+
    return(videolist)
+
+ 
+
 
 
 
