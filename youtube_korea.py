@@ -18,11 +18,10 @@ def youtube_korea():
             embedlist.append(i)   
     embedlist
     video_url =[]
-    for i in embedlist:
-        html = requests.get(i).text
-        soup = BeautifulSoup(html,'html.parser')
-        if soup.find('link',{'rel':"canonical"} ) == None:
-            continue
-        a =soup.find('link',{'rel':"canonical"} )['href']
-        video_url.append(a)
+    url_prefix = 'https://www.youtube.com/watch?v='
+    for i in range(len(embedlist)):
+        video_url.append(url_prefix+embedlist[i].split('/')[-1])   
     return video_url
+
+if __name__=='__main__':
+    video_url()
