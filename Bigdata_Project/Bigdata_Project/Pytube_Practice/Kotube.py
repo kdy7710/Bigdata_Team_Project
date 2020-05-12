@@ -36,6 +36,11 @@ def get_ko_sub(video_url):
             print('Korean Sub does not exist')
     return all_sub
 
+with open('test.txt','w') as f:
+    f.write(get_ko_sub('https://www.youtube.com/watch?v=LKJjaJXDJqE'))
+
+
+
 
 
 

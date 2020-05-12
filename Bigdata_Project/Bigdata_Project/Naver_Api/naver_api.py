@@ -1,4 +1,4 @@
-def search(keyword1, keyword2 = None ):
+def search(keyword1, keyword2 = None, startdate = '2020-01-01', enddate = '2020-03-01' ):
     """
     Naver_api 이용해서 검색후 
     날짜와 검색율 가진 Dataframe을 Return
@@ -14,18 +14,18 @@ def search(keyword1, keyword2 = None ):
     client_secret = "jC5ic5g9wu"
 
     # URL
-    url = "https://openapi.naver.com/v1/datalab/search";
+    url = "https://openapi.naver.com/v1/datalab/search"
 
     # 질의문
-    body = "{\"startDate\":\"2020-01-01\",\
-             \"endDate\":\"2020-04-30\",\
+    body = "{\"startDate\":\"%s\",\
+             \"endDate\":\"%s\",\
              \"timeUnit\":\"date\",\
              \"keywordGroups\":[{\
              \"groupName\":\"..\",\
              \"keywords\":[\"%s\",\"%s\"]}],\
              \"device\":\"pc\",\
              \"ages\":[\"1\",\"2\"],\
-             \"gender\":\"f\"}" %(keyword1,keyword2);
+             \"gender\":\"f\"}" %(startdate,enddate,keyword1,keyword2)
 
     # 초기화
     regexp_date = ''  # 날짜 정규식 적용
@@ -98,3 +98,7 @@ def search(keyword1, keyword2 = None ):
     df=df.astype(float)
 
     return(df)
+
+if __name__ == '__main__':
+    a= search('코로나',startdate='2020-02-01')
+    print(a)
