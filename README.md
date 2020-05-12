@@ -30,7 +30,7 @@ wordcloud = WordCloud(font_path='../SDKukdetopokki-aLt.otf',
                        ranks_only=True
 ...
  
-test1234
+*test1234
 다른 계정으로 접속
 
  
