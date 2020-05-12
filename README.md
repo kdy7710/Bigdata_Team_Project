@@ -31,11 +31,13 @@ wordcloud = WordCloud(font_path='../SDKukdetopokki-aLt.otf',
 ...
 ==================================================
 test1234
-다른계정으로 접속
+다른 계정으로 접속
+
 ==================================================
 * subscriber_stat\socialblade.py 등
 selenium 혹은 webdriver 사용시
 selenium 설치(pip install selenium) 선행 되어야함.
+
 ==================================================
 * web driver 사용 시(chrome driver 등)
 브라우저의 버전과 드라이버의 버전을 잘 맞춰주어야함.
