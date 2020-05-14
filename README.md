@@ -15,7 +15,7 @@
 
 #### 3번안
 * 드라마 ppl 효과 분석
-* 데이터 링크:https://www.datastore.or.kr/api/detail?id=9c126310-5db9-4698-8a60-c9937963b14b
+* 데이터 링크: https://www.datastore.or.kr/api/detail?id=9c126310-5db9-4698-8a60-c9937963b14b
 * 프로그램 속성 파악 (시청률, 시간대, 시청자 군, 방송사)
 
 #### 4번안 
