@@ -5,7 +5,7 @@ def convert_strtime(str_time):
 
 def timeminus(date, days):
     import datetime
-    minusdate = date - datetime.timedelta(days=days)
+    minusdate = date + datetime.timedelta(days=days)
     return str(minusdate)[:10]
 
 if __name__=='__main__':
@@ -13,4 +13,4 @@ if __name__=='__main__':
     date1 = timeminus(date, 30)
     
     date2 = timeminus(date, -30)
-    print(date, date2)
+    print(date1, date2)
