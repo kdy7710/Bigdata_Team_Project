@@ -46,6 +46,7 @@ def search(keyword1, keyword2 = None, startdate = '2020-01-01', enddate = '2020-
 
         # 네이버API 질의문에 대한 응답 리스트에 저장 (인코딩, 쉼표 기준 문자열 자르기)
         response_body = response.read().decode('utf-8').split(',')
+        print(response_body)
 
         for i in range(0,len(response_body)) :
             #정규식(날짜) 적용하여 필터링된 값 저장
@@ -100,5 +101,5 @@ def search(keyword1, keyword2 = None, startdate = '2020-01-01', enddate = '2020-
     return(df)
 
 if __name__ == '__main__':
-    a= search('코로나',startdate='2020-02-01')
-    print(a)
+    a= search(keyword1='원통 젠가',keyword2='원통 젠가',startdate='2019-04-01',enddate='2019-05-31')
+     
