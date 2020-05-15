@@ -1,7 +1,10 @@
-def search(keyword1, keyword2 = None, startdate = '2020-01-01', enddate = '2020-03-01' ):
+def search(keyword1, startdate = '2020-01-01', enddate = '2020-03-01' ):
     """
     Naver_api 이용해서 검색후 
     날짜와 검색율 가진 Dataframe을 Return
+    (네이버 API 상에서 해당 날짜 값이 없을 시 아무 값도 
+    리턴 하지 않으므로 임의로 해당날짜에 값 0 삽입)
+    데이터가 0인 날은 missing date 리스트로 출력.
     
     """
     import os
@@ -9,6 +12,12 @@ def search(keyword1, keyword2 = None, startdate = '2020-01-01', enddate = '2020-
     import sys
     import pandas as pd
     import urllib.request
+    
+    dt_index = pd.date_range(start=startdate, end=enddate)
+    dt_list = dt_index.strftime("%Y%m%d").tolist()
+    
+
+
     # 네이버 API 접근 계정
     client_id = "I4Fva_A2tRCvTccEOaAX"
     client_secret = "jC5ic5g9wu"
@@ -43,8 +52,11 @@ def search(keyword1, keyword2 = None, startdate = '2020-01-01', enddate = '2020-
 
         # 네이버API 질의문에 대한 응답 리스트에 저장 (인코딩, 쉼표 기준 문자열 자르기)
         response_body = response.read().decode('utf-8').split(',')
-        print(response_body)
-        print(len(response_body[]))
+
+        # print(response_body)
+        
+        # print(len(response_body))
+       
         for i in range(0,len(response_body)) :
             #정규식(날짜) 적용하여 필터링된 값 저장
             regexp_date = re.findall('\d{4}-\d\d-\d\d',response_body[i])
@@ -76,27 +88,53 @@ def search(keyword1, keyword2 = None, startdate = '2020-01-01', enddate = '2020-
 
     else:
         print("Error Code:" + rescode)
-
-   
+    
+    for idx,i in enumerate(result_date):
+        result_date[idx] = i.replace('-','')
+    
+    # rate 없는 날짜 리스트 만들기 
+    missing_date = []
+    for i in range(1,len(dt_list)):
+        if dt_list[i] not in result_date:
+            missing_date.append(dt_list[i])
+            
 
     
     df = pd.DataFrame(union_date_ratio, columns=['날짜','비율'])
-    
-    
-    for i in range(0,len(result_date)):
-
+    for i in range(0,len(result_ratio)):
         df = df.append(
         {
-            '날짜': result_date[i],
-            '비율': result_ratio[int(i)]
+            '날짜' : result_date[i],
+            '비율' : result_ratio[i]
 
         }, ignore_index=True 
         )
-    df = df.set_index('날짜')
-    df=df.astype(float)
+     
 
-    return(df)
+    # 전체 날짜 가지고 있는 값없는 df
+    df2 = pd.DataFrame(union_date_ratio, columns=['날짜','비율'])
+    for i in range(0,len(dt_list)):
+            df2 = df2.append(
+            {
+                '날짜': dt_list[i]
+            }, ignore_index=True 
+            )
+     
+
+    df_final = pd.merge(df,df2,on='날짜',how='right')
+    df_final = df_final.sort_values(['날짜'],ascending=[True])
+    df_final = df_final.drop('비율_y',axis=1)
+    
+    df_final = df_final.set_index('날짜')
+    df_final=df_final.astype(float).fillna(0)
+
+    print("missing_dates :{}".format(missing_date))
+
+    
+
+    return(df_final)
+    
 
 if __name__ == '__main__':
-    a= search(keyword1='asd',startdate='2019-04-01',enddate='2019-05-31')
+    a= search(keyword1='원통젠가',startdate='2019-04-01',enddate='2019-05-31')
      
