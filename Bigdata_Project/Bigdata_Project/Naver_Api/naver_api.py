@@ -7,12 +7,13 @@ def search(keyword1, startdate = '2020-01-01', enddate = '2020-03-01' ):
     데이터가 0인 날은 missing date 리스트로 출력.
     
     """
+
     import os
     import re 
     import sys
     import pandas as pd
     import urllib.request
-    
+ 
     dt_index = pd.date_range(start=startdate, end=enddate)
     dt_list = dt_index.strftime("%Y%m%d").tolist()
     
