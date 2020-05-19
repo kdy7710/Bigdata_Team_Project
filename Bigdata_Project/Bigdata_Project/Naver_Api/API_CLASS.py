@@ -124,7 +124,7 @@ class NaverApi():
         for i in range(1,len(self.dt_list)):
             if self.dt_list[i] not in result_date:
                 missing_date.append(self.dt_list[i])
-        print("Date Missing on {}".format(missing_date))
+        missing_date = "Date Missing on {}".format(missing_date)
         return(missing_date)
         
 
@@ -195,7 +195,18 @@ class NaverApi():
         df_final = df_final.set_index('날짜')
         df_final = df_final.astype(float).fillna(0)
         return(df_final)
-   
+    
+    def to_excel(self,filepath):
+        df = self.to_dataframe()
+        df.to_excel(filepath, encoding='UTF-8')
+        return(df)
+    
+    def to_csv(self,filepath):
+        df = self.to_dataframe()
+        df.to_csv(filepath, encoding='ms949')
+        return(df)
+
+
                 
 
        
@@ -203,4 +214,5 @@ class NaverApi():
 if __name__ == '__main__':
 
     na = NaverApi('달고나','2020-03-05','2020-05-05')
-    na.to_dataframe()
+    
+    na.to_excel('tt.xlsx')
