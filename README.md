@@ -5,6 +5,37 @@
 * 구독자 높은 vs 구독자 적은
 영상 크롤링후
 키워드 네이버, 구글에 검색트랜드 변화확인
+<뷰티 인플루언서>  
+
+keywords = glowpick keywords 추출 (약 80000개)
+
+
+Youtube_URL.search(keywords) --> return url(상위 3 개 ..70000*3)
+*채널명
+*저장 루틴만들기!!
+
+socialblade2.socialblade1(url)
+
+ """
+    url = 동영상주소,
+    return 값은 [[날짜,구독자수],영상업로드날짜,업로드월에 구독자수]
+ """
+
+Naver_Api.API_CLASS.NaverApi(keyword, 영상업로드날짜)
+
+--> 날짜별 검색율 df 
+
+날짜별 검색율 df ,업로드월에 구독자수
+
+
+
+분석
+
+구독자 수 그룹핑 
+
+검색율 점수 매김
+avg(영상 올린날, +1,+2)/(영상올리기전날)
+
 
 #### 2번안
 * 네이버나 구글에서 키워드 획득후
