@@ -8,4 +8,4 @@ text = ''
 for i in range(0,len(videolist)):
     text += get_ko_sub(videolist[i])
 
-
+print(text)
