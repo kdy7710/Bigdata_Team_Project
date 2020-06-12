@@ -213,6 +213,6 @@ class NaverApi():
 
 if __name__ == '__main__':
 
-    na = NaverApi('달고나','2020-03-05','2020-05-05')
-    
-    na.to_excel('tt.xlsx')
+    na = NaverApi('축구','2019-06-11','2020-06-11')    
+    print(na.to_dataframe())
+   
