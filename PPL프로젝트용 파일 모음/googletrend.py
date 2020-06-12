@@ -43,3 +43,4 @@ if __name__=='__main__':
     data = googletrend(keywords, startdate, enddate)
     data = table_sub(data, 30000)
     print(data)
+    
