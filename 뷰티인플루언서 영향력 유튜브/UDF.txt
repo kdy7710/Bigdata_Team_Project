@@ -53,8 +53,10 @@ na.to_excel('네이버트렌드검색량.xlsx')
 해당 url의 kor자막을 가져옴(몇가지 stopwords 설정되어있음)
 ≫ 
 ● socialblade2.py
-- convert(time)
+- socialblade1(url)
+ㄴ convert(time)
 S.B의 구독자추이 차트에 javascript로 구현된 시간을 읽기 위해 유닉스타임으로 변환해줌
+
 ex)
 url = "영상url"
 for i in socialblade1('영상URL'):
