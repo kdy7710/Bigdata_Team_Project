@@ -13,8 +13,8 @@ def timeminus(date, days=30):
     minusdate = date + datetime.timedelta(days=days)
     return str(minusdate)[:10]
 
-df_raw = pd.read_excel('7. 데이터 활용 매뉴얼 - 방송정보메타데이타샘플.xls')
-#print(df.head())
+df_raw = pd.read_excel('7. 데이터 활용 매뉴얼 - 방송정보메타데이타샘플2.xls')
+#print(df_raw.head())
 #print(df_raw[['방송일','브랜드','품목']].head())
 df = df_raw[['방송일','브랜드','품목','상품명']]
 
@@ -49,5 +49,5 @@ for i, row in df.iterrows():
 
     #na = NaverApi('달고나','2020-03-05','2020-05-05')
     #na.to_excel('tt.xlsx')
-result.to_csv('t1.csv')
+result.to_csv('ppl2.csv')
 

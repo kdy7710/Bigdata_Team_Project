@@ -87,5 +87,6 @@ def socialblade1(url):
 
 if __name__=='__main__':
     url='https://www.youtube.com/watch?v=S2fDoILcLDQ'
-    for i in socialblade1(url):
-        print(i)
+    print(socialblade1(url))
+    # for i in socialblade1(url):
+    #     print(i)
