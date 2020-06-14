@@ -3,7 +3,7 @@ from Youtube_URL import get_url
 import pandas as pd
 import numpy as np
 import API_CLASS
-from googletrend import googletrend
+import googletrend
 import datetime
 import json
 from socialblade2 import socialblade1
@@ -28,12 +28,15 @@ for i, row in df.iterrows():
         # print(type(i))
         social_list = socialblade1(i)
         print(social_list)
-#         upload_date, sub = social_list[-2],social_list[-1] # upload_date, sub
-#         #시간설정
-#         today = API_CLASS.convert_strtime(upload_date)
-#         start_date , enddate = API_CLASS.timeminus(today, -30), API_CLASS.timeminus(today, 30)
-#         #네이버api
-#         na = API_CLASS.NaverApi(keyword,start_date , enddate).to_dataframe()
-#         result[keyword]=na.reset_index(drop=True)
-#         print(result)
+        upload_date, sub = social_list[-2],social_list[-1] # upload_date, sub
+        #시간설정
+        # today = API_CLASS.convert_strtime(upload_date)
+        # start_date , enddate = API_CLASS.timeminus(today, -30), API_CLASS.timeminus(today, 30)
+        # #네이버api
+        # na = API_CLASS.NaverApi(keyword,start_date , enddate).to_dataframe()
+        # googletrend.table_sub(na,sub)
+        # result[keyword]=na.reset_index(drop=True)
+        # print(result)
+        
+#        
 # result.to_csv('beauti_result1.csv')
