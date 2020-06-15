@@ -19,8 +19,6 @@ df_raw = pd.read_excel('7. 데이터 활용 매뉴얼 - 방송정보메타데이
 #print(df_raw[['방송일','브랜드','품목']].head())
 df = df_raw[['방송일','브랜드','품목']]
 
-
-
 #적재할 빈데이터프레임
 result = pd.DataFrame(index=range(0,61))
 
