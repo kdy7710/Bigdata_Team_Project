@@ -19,7 +19,7 @@ def googletrend(keywords, startdate, enddate):
          gprop='')
     data = pytrend.interest_over_time()
     
-        data= data.drop(labels=['isPartial'],axis='columns')
+    data= data.drop(labels=['isPartial'],axis='columns')
 #     image = data.plot(title = 'Python V.S. R in last 3 months on Google Trends ')
 #     fig = image.get_figure()
 #     fig.savefig('figure.png')
