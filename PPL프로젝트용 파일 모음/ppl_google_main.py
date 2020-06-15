@@ -37,14 +37,24 @@ for i, row in df.iterrows():
 
     #브랜드+품목명 네이버 검색
     keyword = row['브랜드']+' '+row['품목']
-    #print(keyword)
-    naver_data1 =  googletrend([keyword], start_date, enddate)
+    print(keyword)
+    try:
+        naver_data1 =  googletrend([keyword], start_date, enddate)
+        result[keyword]=naver_data1.reset_index(drop=True)
+    except:
+        continue
+
     #naver_data1 = naver_data1.reset_index(drop=True)
-    result[keyword]=naver_data1.reset_index(drop=True)
+    
 
     #품목으로 네이버 검색
     keyword = row['상품명']
-    naver_data1 =  googletrend([keyword], str(start_date), str(enddate))
-    result[keyword]=naver_data1.reset_index(drop=True)
+    print(keyword)
+    try:
+        naver_data1 =  googletrend([keyword], start_date, enddate)
+        result[keyword]=naver_data1.reset_index(drop=True)
+    except:
+        continue
+    
     #print(len(naver_data1))
 result.to_csv('google.csv',encoding='utf-8-sig')
