@@ -47,4 +47,4 @@ for i, row in df.iterrows():
     naver_data1 =  googletrend([keyword], str(start_date), str(enddate))
     result[keyword]=naver_data1.reset_index(drop=True)
     #print(len(naver_data1))
-result.to_csv('google.csv')
+result.to_csv('google.csv',encoding='utf-8-sig')

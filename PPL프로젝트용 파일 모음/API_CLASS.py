@@ -213,6 +213,6 @@ class NaverApi():
 
 if __name__ == '__main__':
 
-    na = NaverApi('축구','2019-06-11','2020-06-11')    
+    na = NaverApi('Leaf DNA Pearl Gene Earring','2019-06-11','2020-06-11')    
     print(na.to_dataframe())
    

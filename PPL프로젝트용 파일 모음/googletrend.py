@@ -18,11 +18,8 @@ def googletrend(keywords, startdate, enddate):
          geo='KR',
          gprop='')
     data = pytrend.interest_over_time()
-    try:
+    
         data= data.drop(labels=['isPartial'],axis='columns')
-    except expression as e:
-        pass
-    data= data.drop(labels=['isPartial'],axis='columns')
 #     image = data.plot(title = 'Python V.S. R in last 3 months on Google Trends ')
 #     fig = image.get_figure()
 #     fig.savefig('figure.png')

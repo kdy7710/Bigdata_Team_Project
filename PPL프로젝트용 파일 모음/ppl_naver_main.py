@@ -35,19 +35,23 @@ for i, row in df.iterrows():
 
     #브랜드+품목명 네이버 검색
     keyword = row['브랜드']+' '+row['품목']
-    #print(keyword)
+    print(keyword)
     naver_data1 =  NaverApi(keyword, start_date, enddate).to_dataframe()
     #naver_data1 = naver_data1.reset_index(drop=True)
     result[keyword]=naver_data1.reset_index(drop=True)
 
     #품목으로 네이버 검색
     keyword = row['상품명']
-    naver_data1 =  NaverApi(keyword, start_date, enddate).to_dataframe()
+    print(keyword)
+    try:
+        naver_data1 =  NaverApi(keyword, start_date, enddate).to_dataframe()
+    except:
+        continue
     result[keyword]=naver_data1.reset_index(drop=True)
     #print(len(naver_data1))
     
 
     #na = NaverApi('달고나','2020-03-05','2020-05-05')
     #na.to_excel('tt.xlsx')
-result.to_csv('ppl2.csv')
+result.to_csv('ppl2.csv',encoding='utf-8-sig')
 
