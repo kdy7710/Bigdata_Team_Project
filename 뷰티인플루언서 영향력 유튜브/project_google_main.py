@@ -31,12 +31,17 @@ for i, row in df.iterrows():
         except:
             continue
         print(social_list)
-        upload_date, sub = social_list[-2],social_list[-1] # upload_date, sub
+        upload_date, sub = social_list[-2],social_list[-1][-1] # upload_date, sub
         #시간설정
         today = API_CLASS.convert_strtime(upload_date)
         start_date , enddate = API_CLASS.timeminus(today, -30), API_CLASS.timeminus(today, 30)
         #네이버api
-        na = API_CLASS.NaverApi(keyword,start_date , enddate).to_dataframe()
+        print('123123123123123123')
+        try:
+            na = googletrend.googletrend([keyword],start_date , enddate)
+        except:
+            continue
+        print('456456456456456456456456')
         googletrend.table_sub(na,sub)
         result[keyword]=na.reset_index(drop=True)
         print(result)

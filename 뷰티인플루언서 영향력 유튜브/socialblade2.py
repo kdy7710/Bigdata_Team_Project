@@ -9,14 +9,15 @@ def socialblade1(url):
     from selenium.webdriver.support import expected_conditions as EC
     from selenium.webdriver.common.by import By
 
-    options = webdriver.ChromeOptions()
-    options.add_argument('headless')
-    options.add_argument('window-size=1920x1080')
-    options.add_argument("disable-gpu")
-    driver = webdriver.Chrome('chromedriver',chrome_options=options)
-    
+    # chrome_options = webdriver.ChromeOptions()
+    # chrome_options.add_argument('--headless')
+    # chrome_options.add_argument('--no-sandbox')
+    # chrome_options.add_argument('--disable-dev-shm-usage')
+    driver = webdriver.Chrome('chromedriver.exe')
+    # , options = chrome_options)
+        
     driver.get(url)
-    elem = WebDriverWait(driver,3).until(\
+    elem = WebDriverWait(driver,5).until(\
         EC.presence_of_element_located((By.CSS_SELECTOR, \
         '#date > yt-formatted-string')))
 
@@ -29,7 +30,7 @@ def socialblade1(url):
     upload_date = datetime.datetime.strptime(upload_date,"%Y-%m-%d")
     upload_date = str(upload_date)[:10]
     driver.find_element_by_css_selector('ytd-channel-name.ytd-video-owner-renderer > div > div > yt-formatted-string> a').click()
-    elem = WebDriverWait(driver,2).until(\
+    elem = WebDriverWait(driver,5).until(\
         EC.presence_of_element_located((By.CSS_SELECTOR, \
         '#text')))
     channel_url = driver.current_url #채널url획득
@@ -43,7 +44,7 @@ def socialblade1(url):
     #소셜블레이드에 해당유튜버의 detailed statistics 페이지에 들어가서 크롤링
     social_url = 'https://socialblade.com/youtube/channel/'+youtube_id+'/monthly'
     driver.get(social_url)
-    elem = WebDriverWait(driver,2).until(\
+    elem = WebDriverWait(driver,5).until(\
         EC.presence_of_element_located((By.CSS_SELECTOR, \
         '#socialblade-user-content > div> div')))
     

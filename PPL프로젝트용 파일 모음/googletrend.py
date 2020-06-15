@@ -18,10 +18,7 @@ def googletrend(keywords, startdate, enddate):
          geo='KR',
          gprop='')
     data = pytrend.interest_over_time()
-    try:
-        data= data.drop(labels=['isPartial'],axis='columns')
-    except expression as e:
-        pass
+    
     data= data.drop(labels=['isPartial'],axis='columns')
 #     image = data.plot(title = 'Python V.S. R in last 3 months on Google Trends ')
 #     fig = image.get_figure()
@@ -42,10 +39,10 @@ def table_sub(df, sub):
     
 
 if __name__=='__main__':
-    keywords = ['더메디닥터	클렌징']
-    startdate= '2016-12-14'
-    enddate = '2017-01-25'
-    data = googletrend(keywords, startdate, enddate)
+    keywords = '야구'
+    startdate= '2008-02-01'
+    enddate = '2008-05-25'
+    data = googletrend([keywords], startdate, enddate)
     data = table_sub(data, 30000)
     print(data)
-    
+   
