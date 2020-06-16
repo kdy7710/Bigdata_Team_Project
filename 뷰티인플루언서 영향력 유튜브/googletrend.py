@@ -23,12 +23,24 @@ def googletrend(keywords, startdate, enddate):
 #     fig.savefig('figure.png')
 #    data.to_csv('Py_VS_R.csv', encoding='utf_8_sig')
     return data
+
+def table_sub(df, sub):
+    '''
+    입력값 data 는 데이터프레임, sub은 구독자수
+    리턴값은 데이터프레임(마지막 행이 [sub, 구독자수])
+    '''
+    import pandas as pd
+    df.loc['sub']=[sub]
+    return df
+
     
     
 
 if __name__=='__main__':
-    keywords = ['Python', 'R']
+    keywords = ['Python']
     startdate= '2016-12-14'
     enddate = '2017-01-25'
     data = googletrend(keywords, startdate, enddate)
-    print(data)    
+    data = table_sub(data, 30000)
+    print(data)
+    

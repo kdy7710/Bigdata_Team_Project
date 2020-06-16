@@ -26,24 +26,6 @@ minusdate = timeminus(date, -30)
 
 
 class NaverApi():
-    """
-    <디폴트 값>
-    searchword = '기본'(의미없음)
-    startdate = 프로그램 실행 날짜 기준 -30 일 
-    enddate = 프로그램 실행 날짜 기준 +30 일 
-
-    <클래스 메서드>
-    set_startdate(self,startdate) = 시작날짜 설정
-    set_enddate(self,enddate) = 마지막날짜 설정
-    get_data(self) = 데이터 가공 전 raw data 리턴
-    get_keyword(self) = 현재 검색어 리턴 
-    get_missingdate(self) = naver api 데이터 없는 날짜 리턴 
-    get_period(self) = naver api 데이터 있는 날짜 리턴 
-    get_rate(self) = naver api 비율 데이터 리턴 
-    to_dataframe(self) = 날짜와 비율데이터의 dataframe 리턴 
-    to_excel(self,filepath) = 매개변수로 받은 저장위치에 검색결과 데이터프레임 excel 저장   
-    to_csv(self,filepath) =  매개변수로 받은 저장위치에 검색결과 데이터프레임 csv 저장 
-     """
    
     def __init__(self,searchword='기본',startdate=minusdate,enddate=today):
         self.searchword = searchword
@@ -232,6 +214,5 @@ class NaverApi():
 if __name__ == '__main__':
 
     na = NaverApi('달고나','2020-03-05','2020-05-05')
-    print(na.get_period())
-    print(na.to_dataframe())
+    
     na.to_excel('tt.xlsx')

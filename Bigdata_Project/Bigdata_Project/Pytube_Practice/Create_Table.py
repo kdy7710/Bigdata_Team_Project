@@ -1,6 +1,3 @@
-"""
-테이블 생성 예제
-"""
 import pymysql
 # alter charset to 'utf8mb4' to insert imoji
 

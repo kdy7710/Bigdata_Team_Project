@@ -9,17 +9,17 @@ def socialblade1(url):
     from selenium.webdriver.support import expected_conditions as EC
     from selenium.webdriver.common.by import By
 
-    options = webdriver.ChromeOptions()
-    options.add_argument('headless')
-    options.add_argument('window-size=1920x1080')
-    options.add_argument("disable-gpu")
-    driver = webdriver.Chrome('chromedriver',chrome_options=options)
+    # options = webdriver.ChromeOptions()
+    # options.add_argument('headless')
+    # options.add_argument("--disable-gpu")
+    driver = webdriver.Chrome('chromedriver')
+    #,chrome_options=options)
     
     driver.get(url)
     elem = WebDriverWait(driver,3).until(\
         EC.presence_of_element_located((By.CSS_SELECTOR, \
         '#date > yt-formatted-string')))
-
+    print('qwer1')
     html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
     notices = soup.select('#date > yt-formatted-string')
@@ -33,7 +33,7 @@ def socialblade1(url):
         EC.presence_of_element_located((By.CSS_SELECTOR, \
         '#text')))
     channel_url = driver.current_url #채널url획득
-  
+    print('qwer2')
       
     """channerurl는 영상url 
        출력값은 2차원리스트로 [날짜, 구독자] 
@@ -42,11 +42,13 @@ def socialblade1(url):
 
     #소셜블레이드에 해당유튜버의 detailed statistics 페이지에 들어가서 크롤링
     social_url = 'https://socialblade.com/youtube/channel/'+youtube_id+'/monthly'
+    print(social_url)
     driver.get(social_url)
-    elem = WebDriverWait(driver,2).until(\
+    print('qwer3')
+    elem = WebDriverWait(driver,30).until(\
         EC.presence_of_element_located((By.CSS_SELECTOR, \
-        '#socialblade-user-content > div> div')))
-    
+        '#socialblade-user-content > div > div')))
+    print('qwer4')
     html = driver.page_source
     driver.close()
     text = str(BeautifulSoup(html, 'html.parser'))
