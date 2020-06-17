@@ -6,6 +6,7 @@ import pandas as pd
 import urllib.request
 import json 
 import time
+# today : 영상 업로드 날짜
 today = time.strftime('%Y-%m-%d', time.localtime(time.time()))
 
 def convert_strtime(str_time):
@@ -21,13 +22,14 @@ def timeminus(date, days):
 # 디폴트 enddate (오늘)
 date = convert_strtime(today) 
 # 디폴트 startdate (오늘 - 30 )
-minusdate = timeminus(date, -30)
+startdate = timeminus(date, -30)
+enddate = timeminus(date, 30)
 
 
 
 class NaverApi():
    
-    def __init__(self,searchword='기본',startdate=minusdate,enddate=today):
+    def __init__(self,searchword='기본',startdate=startdate,enddate=enddate):
         self.searchword = searchword
         self.startdate = startdate
         self.enddate = enddate 
