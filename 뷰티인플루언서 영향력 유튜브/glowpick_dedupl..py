@@ -8,7 +8,8 @@ glowpick.ipynb에 삽입되는 것이 좋을 것 같습니다.
 
 df = pd.read_excel('all_brand_name.xlsx', sheet_name='Sheet1')
 df = df.drop_duplicates(['상품명'])
-ew = pd.ExcelWriter('dedupl_brand_name.xlsx', engine='xlsxwriter')
-df.to_excel(ew, index=False)
-ew.save()
-ew.close()
+print(df.unique())
+# ew = pd.ExcelWriter('dedupl_brand_name.xlsx', engine='xlsxwriter')
+# df.to_excel(ew, index=False)
+# ew.save()
+# ew.close()

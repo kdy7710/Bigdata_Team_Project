@@ -1,0 +1,63 @@
+[INFO  - 2020-06-17T08:14:49.322Z] GhostDriver - Main - running on port 50921
+[INFO  - 2020-06-17T08:14:51.381Z] Session [9e1d6bb0-b072-11ea-b81d-c1402af0cf6a] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-06-17T08:14:51.381Z] Session [9e1d6bb0-b072-11ea-b81d-c1402af0cf6a] - page.customHeaders:  - {}
+[INFO  - 2020-06-17T08:14:51.381Z] Session [9e1d6bb0-b072-11ea-b81d-c1402af0cf6a] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"windows-10-32bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-06-17T08:14:51.381Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 9e1d6bb0-b072-11ea-b81d-c1402af0cf6a
+[ERROR - 2020-06-17T08:14:52.647Z] Session [9e1d6bb0-b072-11ea-b81d-c1402af0cf6a] - page.onError - msg: TypeError: Attempting to configurable attribute of unconfigurable property.
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2020-06-17T08:14:52.648Z] Session [9e1d6bb0-b072-11ea-b81d-c1402af0cf6a] - page.onError - stack:
+  defineProperty (https://www.youtube.com/yts/jsbin/webcomponents-lite-noPatch-vfl-XlwUQ/webcomponents-lite-noPatch.js:150)
+  b (https://www.youtube.com/yts/jsbin/webcomponents-lite-noPatch-vfl-XlwUQ/webcomponents-lite-noPatch.js:150)
+  (anonymous function) (https://www.youtube.com/yts/jsbin/webcomponents-lite-noPatch-vfl-XlwUQ/webcomponents-lite-noPatch.js:152)
+  Ub (https://www.youtube.com/yts/jsbin/webcomponents-lite-noPatch-vfl-XlwUQ/webcomponents-lite-noPatch.js:125)
+  (anonymous function) (https://www.youtube.com/yts/jsbin/webcomponents-lite-noPatch-vfl-XlwUQ/webcomponents-lite-noPatch.js:127)
+  Nb (https://www.youtube.com/yts/jsbin/webcomponents-lite-noPatch-vfl-XlwUQ/webcomponents-lite-noPatch.js:124)
+  Qb (https://www.youtube.com/yts/jsbin/webcomponents-lite-noPatch-vfl-XlwUQ/webcomponents-lite-noPatch.js:124)
+  Xb (https://www.youtube.com/yts/jsbin/webcomponents-lite-noPatch-vfl-XlwUQ/webcomponents-lite-noPatch.js:127)
+  bc (https://www.youtube.com/yts/jsbin/webcomponents-lite-noPatch-vfl-XlwUQ/webcomponents-lite-noPatch.js:136)
+  I (https://www.youtube.com/yts/jsbin/webcomponents-lite-noPatch-vfl-XlwUQ/webcomponents-lite-noPatch.js:136)
+  lc (https://www.youtube.com/yts/jsbin/webcomponents-lite-noPatch-vfl-XlwUQ/webcomponents-lite-noPatch.js:153)
+  (anonymous function) (https://www.youtube.com/yts/jsbin/webcomponents-lite-noPatch-vfl-XlwUQ/webcomponents-lite-noPatch.js:153)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2020-06-17T08:14:52.695Z] Session [9e1d6bb0-b072-11ea-b81d-c1402af0cf6a] - page.onError - msg: TypeError: Attempting to configurable attribute of unconfigurable property.
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2020-06-17T08:14:52.695Z] Session [9e1d6bb0-b072-11ea-b81d-c1402af0cf6a] - page.onError - stack:
+  defineProperty (https://www.youtube.com/yts/jsbin/webcomponents-lite-noPatch-vfl-XlwUQ/webcomponents-lite-noPatch.js:150)
+  b (https://www.youtube.com/yts/jsbin/webcomponents-lite-noPatch-vfl-XlwUQ/webcomponents-lite-noPatch.js:150)
+  (anonymous function) (https://www.youtube.com/yts/jsbin/webcomponents-lite-noPatch-vfl-XlwUQ/webcomponents-lite-noPatch.js:152)
+  Ub (https://www.youtube.com/yts/jsbin/webcomponents-lite-noPatch-vfl-XlwUQ/webcomponents-lite-noPatch.js:125)
+  $b (https://www.youtube.com/yts/jsbin/webcomponents-lite-noPatch-vfl-XlwUQ/webcomponents-lite-noPatch.js:134)
+  createElement (https://www.youtube.com/yts/jsbin/webcomponents-lite-noPatch-vfl-XlwUQ/webcomponents-lite-noPatch.js:143)
+  loadJS (https://www.youtube.com/watch?v=S2fDoILcLDQ:194)
+  dispatchEvent (:0)
+  (anonymous function) (https://www.youtube.com/yts/jsbin/webcomponents-lite-noPatch-vfl-XlwUQ/webcomponents-lite-noPatch.js:32)
+  (anonymous function) (https://www.youtube.com/yts/jsbin/webcomponents-lite-noPatch-vfl-XlwUQ/webcomponents-lite-noPatch.js:17)
+  d (https://www.youtube.com/yts/jsbin/webcomponents-lite-noPatch-vfl-XlwUQ/webcomponents-lite-noPatch.js:17)
+  (anonymous function) (https://www.youtube.com/yts/jsbin/webcomponents-lite-noPatch-vfl-XlwUQ/webcomponents-lite-noPatch.js:17)
+  q (https://www.youtube.com/yts/jsbin/webcomponents-lite-noPatch-vfl-XlwUQ/webcomponents-lite-noPatch.js:17)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2020-06-17T08:14:53.274Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1592381693266
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2020-06-17T08:14:54.106Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1592381694051
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2020-06-17T08:14:54.943Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1592381694886
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2020-06-17T08:14:55.727Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1592381695726
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2020-06-17T08:14:56.511Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1592381696507
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2020-06-17T08:14:57.351Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1592381697289
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2020-06-17T08:14:58.130Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1592381698129
+
+  phantomjs://platform/console++.js:263 in error
