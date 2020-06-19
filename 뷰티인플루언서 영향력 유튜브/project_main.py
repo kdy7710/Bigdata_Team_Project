@@ -1,5 +1,5 @@
 from Kotube import get_info
-from Youtube_URL import get_url
+from youtube_url_project import get_url
 import pandas as pd
 import numpy as np
 import API_CLASS
@@ -9,8 +9,8 @@ import json
 from socialblade2 import socialblade1
 
 
-def youtube_url_main(keyword, howmany):
-    videolist = get_url(keyword,howmany)
+def youtube_url_main(keyword):
+    videolist = get_url(keyword,3)
     print(videolist)
 
 df_raw = pd.read_pickle('glowpick_nodupl.pkl')
