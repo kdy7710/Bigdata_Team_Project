@@ -17,7 +17,8 @@ def youtube_url_main(keyword):
 df_raw = pd.read_pickle('glowpick_nodupl.pkl')
 df = df_raw.copy()
 
-result = pd.DataFrame(index=range(0,61))
+result_na = pd.DataFrame(index=range(0,62))
+result_goo = pd.DataFrame(index=range(0,62))
 
 for i, row in df.iterrows():
     keyword = row['상품명']
@@ -32,23 +33,38 @@ for i, row in df.iterrows():
             social_list = socialblade1(i)
         except:
             continue
-        print(social_list)
+        #print(social_list)
         upload_date, sub = social_list[-2],social_list[-1][-1] # upload_date, sub
-        print(upload_date, sub)
+        #print(upload_date, sub)
         
         #시간설정
         today = API_CLASS.convert_strtime(upload_date)
         start_date , enddate = API_CLASS.timeminus(today, -30), API_CLASS.timeminus(today, 30)
         if enddate>=nowDate:
             continue
+
         #네이버api
         na = API_CLASS.NaverApi(keyword,start_date , enddate).to_dataframe()
         na = googletrend.table_sub(na,sub)
-        result[keyword]=na.reset_index(drop=True)
-        print(result)
+        result_na[keyword]=na.reset_index(drop=True)
+        result_na.to_csv('beauti_result_na.csv',encoding='utf-8-sig')
+        #print(result)
+
+        #구글트렌드
+        # try:
+        #     goo = googletrend.googletrend(keyword,start_date , enddate)
+        #     goo = googletrend.table_sub(goo,sub)
+        #     result_goo[keyword]=goo.reset_index(drop=True)
+        #     result_goo.to_csv('beauti_result_goo.csv',encoding='utf-8-sig')
+        # except:
+        #     goo = googletrend.googletrend(keyword,start_date , enddate)
+        #     goo = googletrend.table_sub(goo,sub)
+        #     result_goo[keyword]=goo.reset_index(drop=True)
+        #     result_goo.to_csv('beauti_result_goo.csv',encoding='utf-8-sig')
+        #print(result)
+
         iter_n +=1
-        if iter_n>=5:
+        if iter_n>=3:
             break
-        
                
-result.to_csv('beauti_result1.csv',encoding='utf-8-sig')
+#result.to_csv('beauti_result1.csv',encoding='utf-8-sig')

@@ -37,7 +37,7 @@ def table_sub(df, sub):
     
 
 if __name__=='__main__':
-    keywords = ['Python']
+    keywords = ['asdfqwe']
     startdate= '2016-12-14'
     enddate = '2017-01-25'
     data = googletrend(keywords, startdate, enddate)
