@@ -19,7 +19,10 @@ df = df_raw.copy()
 print(df)
 result = pd.DataFrame(index=range(0,62))
 
-
+import os
+print(__file__)
+print(os.path.realpath(__file__))
+print(os.path.abspath(__file__))
 # for i, row in enumerate(['스팀베이스', '비건뷰티', '컨투어']):
 #     keyword = row
 #     print(keyword)

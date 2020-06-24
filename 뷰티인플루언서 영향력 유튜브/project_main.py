@@ -13,8 +13,8 @@ nowDate = str(now.strftime('%Y-%m-%d'))
 def youtube_url_main(keyword):
     videolist = get_url(keyword,3)
     print(videolist)
+df_raw = pd.read_csv('뷰티인플루언서 영향력 유튜브/split_data/na_result_0.csv')
 
-df_raw = pd.read_pickle('glowpick_nodupl.pkl')
 df = df_raw.copy()
 
 result_na = pd.DataFrame(index=range(0,62))
@@ -68,3 +68,4 @@ for i, row in df.iterrows():
             break
                
 #result.to_csv('beauti_result1.csv',encoding='utf-8-sig')
+print('완료')
