@@ -13,7 +13,10 @@ nowDate = str(now.strftime('%Y-%m-%d'))
 def youtube_url_main(keyword):
     videolist = get_url(keyword,3)
     print(videolist)
-df_raw = pd.read_csv('뷰티인플루언서 영향력 유튜브/split_data/na_result_0.csv')
+
+num=0 #파일번호
+num=str(num)
+df_raw = pd.read_csv('뷰티인플루언서 영향력 유튜브/split_data/na_result_'+num+'.csv')
 
 df = df_raw.copy()
 
@@ -47,7 +50,7 @@ for i, row in df.iterrows():
         na = API_CLASS.NaverApi(keyword,start_date , enddate).to_dataframe()
         na = googletrend.table_sub(na,sub)
         result_na[keyword]=na.reset_index(drop=True)
-        result_na.to_csv('beauti_result_na.csv',encoding='utf-8-sig')
+        result_na.to_csv('beauti_result_na_'+num+'.csv',encoding='utf-8-sig')
         #print(result)
 
         #구글트렌드
@@ -55,12 +58,12 @@ for i, row in df.iterrows():
         #     goo = googletrend.googletrend(keyword,start_date , enddate)
         #     goo = googletrend.table_sub(goo,sub)
         #     result_goo[keyword]=goo.reset_index(drop=True)
-        #     result_goo.to_csv('beauti_result_goo.csv',encoding='utf-8-sig')
+        #     result_goo.to_csv('beauti_result_goo'+num+'.csv',encoding='utf-8-sig')
         # except:
         #     goo = googletrend.googletrend(keyword,start_date , enddate)
         #     goo = googletrend.table_sub(goo,sub)
         #     result_goo[keyword]=goo.reset_index(drop=True)
-        #     result_goo.to_csv('beauti_result_goo.csv',encoding='utf-8-sig')
+        #     result_goo.to_csv('beauti_result_goo'+num+'.csv',encoding='utf-8-sig')
         #print(result)
 
         iter_n +=1
