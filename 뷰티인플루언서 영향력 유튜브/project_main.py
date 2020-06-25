@@ -7,12 +7,13 @@ import googletrend
 import datetime
 import json
 from socialblade2 import socialblade1
-from datetime import datetime
+#from datetime import datetime
 from tqdm import tqdm
 import warnings
 warnings.filterwarnings("ignore")
 
-now = datetime.now()
+
+now = datetime.datetime.now()
 nowDate = str(now.strftime('%Y-%m-%d'))
 def youtube_url_main(keyword):
     videolist = get_url(keyword,3)
@@ -49,6 +50,8 @@ for i, row in df.iterrows():
         #     continue
         #print(social_list)
         upload_date, sub = i[0],i[1] # upload_date, sub
+        
+        upload_date = str(datetime.datetime.strptime(upload_date,'%Y-%m-%d'))[:10]
         print(upload_date, sub)
         
         #시간설정

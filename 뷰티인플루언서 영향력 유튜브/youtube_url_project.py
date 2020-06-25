@@ -78,6 +78,7 @@ def get_url(plusURL, count):
         view_count = soup.select('#count > yt-view-count-renderer > span.view-count.style-scope.yt-view-count-renderer')
         view_count = view_count[0].text
         view_count = re.sub('[^0-9]','',view_count.split()[-1])
+        upload_date = re.sub('. ','-',upload_date)[:-1]
         one.append(upload_date)
         one.append(view_count)
         all_list.append(one)
