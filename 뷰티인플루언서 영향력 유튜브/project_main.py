@@ -23,7 +23,7 @@ num=str(num)
 df_raw = pd.read_csv('뷰티인플루언서 영향력 유튜브/split_data/na_result_'+num+'.csv')
 
 df = df_raw.copy()
-
+print(df.head())
 result_na = pd.DataFrame(index=range(0,62))
 result_goo = pd.DataFrame(index=range(0,62))
 
@@ -41,17 +41,20 @@ for i, row in df.iterrows():
         # print(i)
         # print(type(i))
         try:
+            print('소셜 시작')
             social_list = socialblade1(i)
+            print('소셜 끝+')
         except:
             print('EXCEPT - in url_list')
             continue
         #print(social_list)
         upload_date, sub = social_list[-2],social_list[-1][-1] # upload_date, sub
-        #print(upload_date, sub)
+        print(upload_date, sub)
         
         #시간설정
         today = API_CLASS.convert_strtime(upload_date)
         start_date , enddate = API_CLASS.timeminus(today, -30), API_CLASS.timeminus(today, 30)
+        print(start_date, enddate)
         if enddate>=nowDate:
             print('CONTINUE - enddata >= nowDate')
             continue
