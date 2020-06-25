@@ -10,10 +10,12 @@ def socialblade1(url):
     from selenium.webdriver.common.by import By
 
     chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument('headless')
-    chrome_options.add_argument('--disable-gpu')
+    # chrome_options.add_argument('headless')
+    # chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36")
-    chrome_options.add_argument('lang=ko_KR')
+    # chrome_options.add_argument('lang=ko_KR')
+    # chrome_options.add_argument('--log-level=3') # chrome(chromedriver X)에서 보내는 로그출력의 레벨을 설정해주는 
+
     driver = webdriver.Chrome('chromedriver.exe', chrome_options = chrome_options)
         
     #driver = webdriver.PhantomJS('phantomjs.exe')    
