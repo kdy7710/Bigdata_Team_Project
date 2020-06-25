@@ -36,19 +36,19 @@ for i, row in df.iterrows():
     url_list = get_url(keyword,10)
     iter_n = 0
     for i in tqdm(url_list):
-        print('[[두번째 for문]]')
-        print(i,'진행')
-        # print(i)
-        # print(type(i))
-        try:
-            print('소셜 시작')
-            social_list = socialblade1(i)
-            print('소셜 끝+')
-        except:
-            print('EXCEPT - in url_list')
-            continue
+        # print('[[두번째 for문]]')
+        # print(i,'진행')
+        # # print(i)
+        # # print(type(i))
+        # try:
+        #     print('소셜 시작')
+        #     social_list = socialblade1(i)
+        #     print('소셜 끝+')
+        # except:
+        #     print('EXCEPT - in url_list')
+        #     continue
         #print(social_list)
-        upload_date, sub = social_list[-2],social_list[-1][-1] # upload_date, sub
+        upload_date, sub = i[0],i[1] # upload_date, sub
         print(upload_date, sub)
         
         #시간설정
