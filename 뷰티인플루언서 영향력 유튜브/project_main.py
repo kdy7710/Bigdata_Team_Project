@@ -61,7 +61,7 @@ for i, row in df.iterrows():
         na = API_CLASS.NaverApi(keyword,start_date , enddate).to_dataframe()
         na = googletrend.table_sub(na,sub)
         print(na)
-        result_na[keyword]=na.reset_index(drop=True)
+        result_na[keyword+'_'+iter_n]=na.reset_index(drop=True)
         result_na.to_csv('beauti_result_na_'+num+'.csv',encoding='utf-8-sig')
         #print(result)
 
