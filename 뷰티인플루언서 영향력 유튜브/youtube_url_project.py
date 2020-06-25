@@ -79,7 +79,8 @@ def get_url(plusURL, count):
         view_count = view_count[0].text
         view_count = re.sub('[^0-9]','',view_count.split()[-1])
         upload_date = re.sub('. ','-',upload_date)[:-1]
-        one.append(upload_date)
+        upload_date = re.findall('[0-9]+-[0-9]+-[0-9]+', upload_date)
+        one.append(upload_date[0])
         one.append(view_count)
         all_list.append(one)
     return all_list
@@ -87,4 +88,4 @@ def get_url(plusURL, count):
 
 if __name__=='__main__':
     
-    print(get_url('달고나',5))
+    print(get_url('미바 PA',5))
