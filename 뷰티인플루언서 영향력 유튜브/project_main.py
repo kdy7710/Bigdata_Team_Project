@@ -51,23 +51,24 @@ for i, row in df.iterrows():
         #print(social_list)
         upload_date, sub = i[0],i[1] # upload_date, sub
         
-        upload_date = str(datetime.datetime.strptime(upload_date,'%Y-%m-%d'))[:10]
+        upload_date = str(datetime.datetime.strptime(upload_date,'%Y-%m-%d').date())
         print(upload_date, sub)
         
         #시간설정
         today = API_CLASS.convert_strtime(upload_date)
         start_date , enddate = API_CLASS.timeminus(today, -30), API_CLASS.timeminus(today, 30)
         print(start_date, enddate)
-        if enddate>=nowDate:
+        if enddate>=nowDate or start_date<'2016-01-01':
             print('CONTINUE - enddata >= nowDate')
             continue
 
         #네이버api
         print('[[#네이버 api" 진입]]')
+        print(keyword,start_date , enddate)
         na = API_CLASS.NaverApi(keyword,start_date , enddate).to_dataframe()
         na = googletrend.table_sub(na,sub)
         print(na)
-        result_na[keyword+'_'+iter_n]=na.reset_index(drop=True)
+        result_na[keyword+'_'+str(iter_n)]=na.reset_index(drop=True)
         result_na.to_csv('beauti_result_na_'+num+'.csv',encoding='utf-8-sig')
         #print(result)
 
