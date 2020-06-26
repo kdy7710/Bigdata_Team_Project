@@ -10,19 +10,28 @@ from socialblade2 import socialblade1
 #from datetime import datetime
 from tqdm import tqdm
 import warnings
-for i in range(0,24):
-    warnings.filterwarnings("ignore")
+warnings.filterwarnings("ignore")
+
+# ■ = 시작전에 수정해야 할 값
+# ■ (네가지) : 시작하는 파일번호, 끝나는 파일번호, 파일 경로, 저장 파일 이름(맨 밑에)
 
 
+
+for i in range(■시작하는 파일번호,■끝나는 파일번호):
+    print('※',i,'번째 파일 작업 시작')
     now = datetime.datetime.now()
     nowDate = str(now.strftime('%Y-%m-%d'))
     def youtube_url_main(keyword):
         videolist = get_url(keyword,3)
         print(videolist)
 
-    num=i #파일번호
+    num = i #파일번호
     num=str(num)
-    df_raw = pd.read_csv('뷰티인플루언서 영향력 유튜브/split_data/na_result_'+num+'.csv')
+    # ( ■ 뷰티인플루언서 영향력 유튜브/
+    # beauty_brand_category_0625/beauty_brand_category_0625
+    # beauty_brand_product_name_0625/beauty_brand_product_name_0625
+    # beauty_product_name_0625/beauty_product_name_0625 )
+    df_raw = pd.read_csv('뷰티인플루언서 영향력 유튜브/■파일경로/■파일경로'+num+'.csv')
 
     df = df_raw.copy()
     print(df.head())
@@ -33,7 +42,7 @@ for i in range(0,24):
         print('[[첫번째 for문]]')
         print(i,'번 idx',row,'진행')
         keyword = row['상품명']
-        # print(keyword)
+        print(keyword)
         # print(type(keyword))
         url_list = get_url(keyword,10)
         iter_n = 0
@@ -70,7 +79,7 @@ for i in range(0,24):
             na = googletrend.table_sub(na,sub)
             print(na)
             result_na[keyword+'_'+str(iter_n)]=na.reset_index(drop=True)
-            result_na.to_csv('beauti_result_na_'+num+'.csv',encoding='utf-8-sig')
+            result_na.to_csv('■저장파일이름'+num+'.csv',encoding='utf-8-sig')
             #print(result)
 
             #구글트렌드

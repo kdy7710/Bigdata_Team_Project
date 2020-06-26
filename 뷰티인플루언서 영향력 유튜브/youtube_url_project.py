@@ -6,6 +6,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import re
+
+
+
 def get_url(plusURL, count):
     chrome_options = webdriver.ChromeOptions()
 
@@ -15,9 +18,14 @@ def get_url(plusURL, count):
 
     chrome_options.add_argument('--disable-dev-shm-usage')
 
+    chrome_options.add_argument('--log-level=3')
 
+    chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
     driver = webdriver.Chrome('chromedriver.exe', options = chrome_options)
+
+
+    
 
     baseURL = 'https://www.youtube.com/results?search_query='
 
@@ -48,7 +56,7 @@ def get_url(plusURL, count):
     html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
     videos = soup.find_all('a', class_ = 'yt-simple-endpoint style-scope ytd-video-renderer' )
-
+    
 
     videolist = []
     baseURL = 'https://www.youtube.com'
@@ -61,7 +69,7 @@ def get_url(plusURL, count):
 
     
     all_list = []
-
+    print(videolist)
     for url in videolist:
         # 내가 수정
         one = []
@@ -75,11 +83,17 @@ def get_url(plusURL, count):
         soup = BeautifulSoup(html, 'html.parser')
         notices = soup.select('#date > yt-formatted-string')
         upload_date = notices[0].text #동영상 올린날짜 string
+        
         view_count = soup.select('#count > yt-view-count-renderer > span.view-count.style-scope.yt-view-count-renderer')
         view_count = view_count[0].text
         view_count = re.sub('[^0-9]','',view_count.split()[-1])
         upload_date = re.sub('. ','-',upload_date)[:-1]
         upload_date = re.findall('[0-9]+-[0-9]+-[0-9]+', upload_date)
+        if upload_date == []:
+            continue
+        # print(upload_date)
+        # print(type(upload_date))
+        # print(upload_date[0])
         one.append(upload_date[0])
         one.append(view_count)
         all_list.append(one)
@@ -88,4 +102,4 @@ def get_url(plusURL, count):
 
 if __name__=='__main__':
     
-    print(get_url('미바 PA',5))
+    print(get_url('야구',10))
