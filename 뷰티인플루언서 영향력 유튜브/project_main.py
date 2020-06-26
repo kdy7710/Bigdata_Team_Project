@@ -18,7 +18,7 @@ folder_file_name='beauty_brand_product_name_0625'
 column_name='브랜상품'
 # '브랜상품(beauty_brand_product_name)'', '상품명(beauty_product_name)', '상품명(beauty_brand_category)'
 start_file_number=0 #시작하는 파일번호
-end_file_number=1 #끝나는 파일번호
+end_file_number=15 #끝나는 파일번호
 ####################################
 
 
@@ -36,10 +36,10 @@ for i in range(start_file_number,end_file_number):
     df_raw = pd.read_csv(default_folder+folder_file_name+'/'+folder_file_name+'_'+num+'.csv')
 
     df = df_raw.copy()
-    print(df.head())
+    print(df)
     result_na = pd.DataFrame(index=range(0,62))
     result_goo = pd.DataFrame(index=range(0,62))
-
+    
     for i, row in df.iterrows():
         print('[[첫번째 for문]]')
         print(i,'번 idx',row,'진행')
@@ -103,6 +103,6 @@ for i in range(start_file_number,end_file_number):
             if iter_n>=2:
                 print('BREAK - iter_n이 3이상')
                 break
-    print(str(i)+'번완료')            
+    print(str(num)+'번 파일 완료')            
     #result.to_csv('beauti_result1.csv',encoding='utf-8-sig')
     #print('완료')
