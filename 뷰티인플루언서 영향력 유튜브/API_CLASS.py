@@ -231,7 +231,7 @@ class NaverApi():
 
 if __name__ == '__main__':
 
-    na = NaverApi('야구','2015-07-21','2015-09-19')
+    na = NaverApi('달고나','2020-03-05','2020-05-05')
     print(na.get_period())
     print(na.to_dataframe())
-    
+    na.to_excel('tt.xlsx')
