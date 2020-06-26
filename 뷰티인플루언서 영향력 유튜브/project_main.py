@@ -17,8 +17,8 @@ default_folder='뷰티인플루언서 영향력 유튜브/'
 folder_file_name='beauty_brand_product_name_0625'
 column_name='브랜상품'
 # '브랜상품(beauty_brand_product_name)'', '상품명(beauty_product_name)', '상품명(beauty_brand_category)'
-start_file_number=0 ■시작하는 파일번호
-end_file_number=20 ■끝나는 파일번호
+start_file_number=0 #시작하는 파일번호
+end_file_number=1 #끝나는 파일번호
 ####################################
 
 
@@ -98,7 +98,7 @@ for i in range(start_file_number,end_file_number):
             #print(result)
 
             iter_n +=1
-            if iter_n>=3:
+            if iter_n>=2:
                 print('BREAK - iter_n이 3이상')
                 break
     print(str(i)+'번완료')            
