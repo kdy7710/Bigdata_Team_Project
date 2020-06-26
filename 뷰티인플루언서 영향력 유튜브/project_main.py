@@ -1,4 +1,4 @@
-from Kotube import get_info
+#from Kotube import get_info
 from youtube_url_project import get_url
 import pandas as pd
 import numpy as np
@@ -6,10 +6,16 @@ import API_CLASS
 import googletrend
 import datetime
 import json
-from socialblade2 import socialblade1
+#from socialblade2 import socialblade1
 #from datetime import datetime
 from tqdm import tqdm
 import warnings
+
+##파일마다 변경해야 하는 변수
+default_folder='뷰티인플루언서 영향력 유튜브/'
+folder_file_name='beauty_brand_product_name_0625'
+column_name='브랜상품'
+
 for i in range(0,24):
     warnings.filterwarnings("ignore")
 
@@ -22,7 +28,7 @@ for i in range(0,24):
 
     num=i #파일번호
     num=str(num)
-    df_raw = pd.read_csv('뷰티인플루언서 영향력 유튜브/split_data/na_result_'+num+'.csv')
+    df_raw = pd.read_csv(default_folder+folder_file_name+'/'+folder_file_name+'_'+num+'.csv')
 
     df = df_raw.copy()
     print(df.head())
@@ -32,7 +38,7 @@ for i in range(0,24):
     for i, row in df.iterrows():
         print('[[첫번째 for문]]')
         print(i,'번 idx',row,'진행')
-        keyword = row['상품명']
+        keyword = row[column_name]
         # print(keyword)
         # print(type(keyword))
         url_list = get_url(keyword,10)
@@ -70,7 +76,7 @@ for i in range(0,24):
             na = googletrend.table_sub(na,sub)
             print(na)
             result_na[keyword+'_'+str(iter_n)]=na.reset_index(drop=True)
-            result_na.to_csv('beauti_result_na_'+num+'.csv',encoding='utf-8-sig')
+            result_na.to_csv(folder_file_name+'_'+num+'.csv',encoding='utf-8-sig')
             #print(result)
 
             #구글트렌드
@@ -90,6 +96,6 @@ for i in range(0,24):
             if iter_n>=3:
                 print('BREAK - iter_n이 3이상')
                 break
-                
+    print(str(i)+'번완료')
     #result.to_csv('beauti_result1.csv',encoding='utf-8-sig')
-    print('완료')
+    
