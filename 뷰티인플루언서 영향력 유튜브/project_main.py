@@ -76,7 +76,7 @@ for i in range(0,24):
             na = googletrend.table_sub(na,sub)
             print(na)
             result_na[keyword+'_'+str(iter_n)]=na.reset_index(drop=True)
-            result_na.to_csv(folder_file_name+'_'+num+'.csv',encoding='utf-8-sig')
+            result_na.to_csv('result'+folder_file_name+'_'+num+'.csv',encoding='utf-8-sig')
             #print(result)
 
             #구글트렌드
