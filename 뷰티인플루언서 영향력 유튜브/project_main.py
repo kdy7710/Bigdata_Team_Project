@@ -47,6 +47,8 @@ for i in range(start_file_number,end_file_number):
         # print(keyword)
         # print(type(keyword))
         url_list = get_url(keyword,10)
+        if url_list==1:
+            continue
         iter_n = 0
         for i in tqdm(url_list):
             # print('[[두번째 for문]]')

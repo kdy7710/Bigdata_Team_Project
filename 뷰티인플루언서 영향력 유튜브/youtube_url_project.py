@@ -38,7 +38,7 @@ def get_url(plusURL, count):
 
     # 스크롤
     body = driver.find_element_by_css_selector('body')
-
+    a = 0
     while True:
         body.send_keys(Keys.PAGE_DOWN)
         time.sleep(0.5)
@@ -48,9 +48,13 @@ def get_url(plusURL, count):
         html = driver.page_source
         soup = BeautifulSoup(html, 'html.parser')
         videos = soup.find_all('a', class_='yt-simple-endpoint style-scope ytd-video-renderer')
+        
+        if len(videos)<=a:
+            return 1
 
         if len(videos) >= int(count):
             break
+        a = len(videos)
 
 
     html = driver.page_source
