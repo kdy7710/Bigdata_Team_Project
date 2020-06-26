@@ -1,4 +1,4 @@
-from Kotube import get_info
+#from Kotube import get_info
 from youtube_url_project import get_url
 import pandas as pd
 import numpy as np
@@ -6,18 +6,24 @@ import API_CLASS
 import googletrend
 import datetime
 import json
-from socialblade2 import socialblade1
+#from socialblade2 import socialblade1
 #from datetime import datetime
 from tqdm import tqdm
 import warnings
 warnings.filterwarnings("ignore")
 
-# ■ = 시작전에 수정해야 할 값
-# ■ (네가지) : 시작하는 파일번호, 끝나는 파일번호, 파일 경로, 저장 파일 이름(맨 밑에)
+##파일마다 변경해야 하는 변수
+default_folder='뷰티인플루언서 영향력 유튜브/'
+folder_file_name='beauty_brand_product_name_0625'
+column_name='브랜상품'
+# '브랜상품(beauty_brand_product_name)'', '상품명(beauty_product_name)', '상품명(beauty_brand_category)'
+start_file_number=0 ■시작하는 파일번호
+end_file_number=20 ■끝나는 파일번호
+####################################
 
 
 
-for i in range(■시작하는 파일번호,■끝나는 파일번호):
+for i in range(start_file_number,end_file_number):
     print('※',i,'번째 파일 작업 시작')
     now = datetime.datetime.now()
     nowDate = str(now.strftime('%Y-%m-%d'))
@@ -27,11 +33,7 @@ for i in range(■시작하는 파일번호,■끝나는 파일번호):
 
     num = i #파일번호
     num=str(num)
-    # ( ■ 뷰티인플루언서 영향력 유튜브/
-    # beauty_brand_category_0625/beauty_brand_category_0625
-    # beauty_brand_product_name_0625/beauty_brand_product_name_0625
-    # beauty_product_name_0625/beauty_product_name_0625 )
-    df_raw = pd.read_csv('뷰티인플루언서 영향력 유튜브/■파일경로/■파일경로'+num+'.csv')
+    df_raw = pd.read_csv(default_folder+folder_file_name+'/'+folder_file_name+'_'+num+'.csv')
 
     df = df_raw.copy()
     print(df.head())
@@ -41,8 +43,8 @@ for i in range(■시작하는 파일번호,■끝나는 파일번호):
     for i, row in df.iterrows():
         print('[[첫번째 for문]]')
         print(i,'번 idx',row,'진행')
-        keyword = row['상품명']
-        print(keyword)
+        keyword = row[column_name]
+        # print(keyword)
         # print(type(keyword))
         url_list = get_url(keyword,10)
         iter_n = 0
@@ -79,7 +81,7 @@ for i in range(■시작하는 파일번호,■끝나는 파일번호):
             na = googletrend.table_sub(na,sub)
             print(na)
             result_na[keyword+'_'+str(iter_n)]=na.reset_index(drop=True)
-            result_na.to_csv('■저장파일이름'+num+'.csv',encoding='utf-8-sig')
+            result_na.to_csv('result_'+folder_file_name+'_'+num+'.csv',encoding='utf-8-sig')
             #print(result)
 
             #구글트렌드
@@ -87,18 +89,18 @@ for i in range(■시작하는 파일번호,■끝나는 파일번호):
             #     goo = googletrend.googletrend(keyword,start_date , enddate)
             #     goo = googletrend.table_sub(goo,sub)
             #     result_goo[keyword]=goo.reset_index(drop=True)
-            #     result_goo.to_csv('beauti_result_goo'+num+'.csv',encoding='utf-8-sig')
+            #     result_goo.to_csv('result_'+folder_file_name+'_'+num+'.csv',encoding='utf-8-sig')
             # except:
             #     goo = googletrend.googletrend(keyword,start_date , enddate)
             #     goo = googletrend.table_sub(goo,sub)
             #     result_goo[keyword]=goo.reset_index(drop=True)
-            #     result_goo.to_csv('beauti_result_goo'+num+'.csv',encoding='utf-8-sig')
+            #     result_goo.to_csv('result_'+folder_file_name+'_'+num+'.csv',encoding='utf-8-sig')
             #print(result)
 
             iter_n +=1
             if iter_n>=3:
                 print('BREAK - iter_n이 3이상')
                 break
-                
+    print(str(i)+'번완료')            
     #result.to_csv('beauti_result1.csv',encoding='utf-8-sig')
-    print('완료')
+    #print('완료')
