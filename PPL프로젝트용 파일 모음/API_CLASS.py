@@ -35,8 +35,8 @@ class NaverApi():
         self.dt_list = self.dt_index.strftime("%Y%m%d").tolist()
    
         # 네이버 API 접근 계정
-        client_id = "I4Fva_A2tRCvTccEOaAX"
-        client_secret = "jC5ic5g9wu"
+        client_id = "AVhdmntSqAjNNYaVEUMZ"
+        client_secret = "S_sUCMIcai"
 
 
         # URL
@@ -213,6 +213,6 @@ class NaverApi():
 
 if __name__ == '__main__':
 
-    na = NaverApi('달고나','2020-03-05','2020-05-05')
-    
-    na.to_excel('tt.xlsx')
+    na = NaverApi('달고나','2019-06-11','2020-06-11')    
+    print(na.to_dataframe())
+   
