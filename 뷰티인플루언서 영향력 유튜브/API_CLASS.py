@@ -53,8 +53,8 @@ class NaverApi():
         self.dt_list = self.dt_index.strftime("%Y%m%d").tolist()
    
         # 네이버 API 접근 계정
-        client_id = "I4Fva_A2tRCvTccEOaAX"
-        client_secret = "jC5ic5g9wu"
+        client_id = "sVHjkcxljCpl29JNtvuq"
+        client_secret = "NZVV39mOaB"
 
 
         # URL
@@ -92,34 +92,7 @@ class NaverApi():
         self.dt_index = pd.date_range(start=startdate, end=enddate)
         self.dt_list = self.dt_index.strftime("%Y%m%d").tolist()
    
-        # 네이버 API 접근 계정
-        client_id = "I4Fva_A2tRCvTccEOaAX"
-        client_secret = "jC5ic5g9wu"
-
-
-        # URL
-        url = "https://openapi.naver.com/v1/datalab/search"
-
-        # 질의문
-        body = "{\"startDate\":\"%s\",\
-                \"endDate\":\"%s\",\
-                \"timeUnit\":\"date\",\
-                \"keywordGroups\":[{\
-                \"groupName\":\"%s\",\
-                \"keywords\":[\"%s\"]}]}" %(startdate,enddate,searchword,searchword)
-
-
-        request = urllib.request.Request(url)
-        request.add_header("X-Naver-Client-Id",client_id)
-        request.add_header("X-Naver-Client-Secret",client_secret)
-        request.add_header("Content-Type","application/json")
-        response = urllib.request.urlopen(request, data=body.encode("utf-8")) 
-   
-        self.data = json.loads(response.read())
-     
-        self.rescode = response.getcode() 
-
-        
+         
 
     def get_data(self):
         if(self.rescode==200):
@@ -231,7 +204,7 @@ class NaverApi():
 
 if __name__ == '__main__':
 
-    na = NaverApi('야구','2015-07-21','2015-09-19')
+    na = NaverApi('야구','2016-07-21','2017-09-19')
     print(na.get_period())
     print(na.to_dataframe())
     
