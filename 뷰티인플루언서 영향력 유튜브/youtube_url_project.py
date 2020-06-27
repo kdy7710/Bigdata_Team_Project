@@ -88,22 +88,29 @@ def get_url(plusURL, count):
         notices = soup.select('#date > yt-formatted-string')
         upload_date = notices[0].text #동영상 올린날짜 string
         
-        view_count = soup.select('#count > yt-view-count-renderer > span.view-count.style-scope.yt-view-count-renderer')
-        view_count = view_count[0].text
-        view_count = re.sub('[^0-9]','',view_count.split()[-1])
-        upload_date = re.sub('. ','-',upload_date)[:-1]
-        upload_date = re.findall('[0-9]+-[0-9]+-[0-9]+', upload_date)
-        if upload_date == []:
+        try:
+            view_count = soup.select('#count > yt-view-count-renderer > span.view-count.style-scope.yt-view-count-renderer')
+            
+            # print(view_count)
+            view_count = view_count[0].text
+            # print(view_count)
+            view_count = re.sub('[^0-9]','',view_count.split()[-1])
+            upload_date = re.sub('. ','-',upload_date)[:-1]
+            # print(upload_date)
+            upload_date = re.findall('[0-9]+-[0-9]+-[0-9]+', upload_date)
+            if upload_date == []:
+                continue
+            # print(upload_date)
+            # print(type(upload_date))
+            # print(upload_date[0])
+            one.append(upload_date[0])
+            one.append(view_count)
+            all_list.append(one)
+        except:
             continue
-        # print(upload_date)
-        # print(type(upload_date))
-        # print(upload_date[0])
-        one.append(upload_date[0])
-        one.append(view_count)
-        all_list.append(one)
     return all_list
         
 
 if __name__=='__main__':
     
-    print(get_url('야구',10))
+    print(get_url('비욘드 [SPF50+/PA++++]',10))
