@@ -53,8 +53,8 @@ class NaverApi():
         self.dt_list = self.dt_index.strftime("%Y%m%d").tolist()
    
         # 네이버 API 접근 계정
-        client_id = "sVHjkcxljCpl29JNtvuq"
-        client_secret = "NZVV39mOaB"
+        client_id = "S5I3bs7Lfh9d_yd6SWmi"
+        client_secret = "w3Gxm5CiwW"
 
 
         # URL

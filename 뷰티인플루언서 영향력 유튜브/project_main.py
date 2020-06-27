@@ -17,8 +17,8 @@ default_folder='뷰티인플루언서 영향력 유튜브/'
 folder_file_name='beauty_brand_product_name_0625'
 column_name='브랜상품'
 # '브랜상품(beauty_brand_product_name)'', '상품명(beauty_product_name)', '상품명(beauty_brand_category)'
-start_file_number=0 #시작하는 파일번호
-end_file_number=15 #끝나는 파일번호
+start_file_number=23 #시작하는 파일번호
+end_file_number=26 #끝나는 파일번호
 ####################################
 
 
