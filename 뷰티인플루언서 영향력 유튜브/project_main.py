@@ -14,11 +14,11 @@ warnings.filterwarnings("ignore")
 
 ##파일마다 변경해야 하는 변수
 default_folder='뷰티인플루언서 영향력 유튜브/'
-folder_file_name='beauty_product_name_0625'
-column_name='상품명'
+folder_file_name='beauty_brand_product_name_0625'
+column_name='브랜상품'
 # '브랜상품(beauty_brand_product_name)'', '상품명(beauty_product_name)', '상품명(beauty_brand_category)'
-start_file_number=28 #시작하는 파일번호
-end_file_number=29 #끝나는 파일번호
+start_file_number=31 #시작하는 파일번호
+end_file_number=33 #끝나는 파일번호
 ####################################
 
 
@@ -33,7 +33,7 @@ for i in range(start_file_number,end_file_number):
 
     num = i #파일번호
     num=str(num)
-    df_raw = pd.read_csv(folder_file_name+'/'+folder_file_name+'_'+num+'.csv')
+    df_raw = pd.read_csv(default_folder+folder_file_name+'/'+folder_file_name+'_'+num+'.csv')
 
     df = df_raw.copy()
     print(df)
