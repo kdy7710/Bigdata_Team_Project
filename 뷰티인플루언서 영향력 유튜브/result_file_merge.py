@@ -11,4 +11,4 @@ for i in range(start_file_number,end_file_number):
     
     df1=pd.read_csv(folder_file_name+str(i)+'.csv', index_col=0)
     df =pd.merge(df,df1, how='outer', left_index=True, right_index=True)
-df.to_csv(folder_file_name+'_allsum.csv',encoding='utf-8-sig')
+df.to_csv(folder_file_name+'.csv',encoding='utf-8-sig')
